@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'allerbold';
+    src: url('http://www.mobile-warsaw.pl/fonts/aller_bd-webfont.eot');
+    src: url('../fonts/aller_bd-webfont.eot') format('embedded-opentype'),
+         url('../fonts/aller_bd-webfont.woff') format('woff'),
+         url('../fonts/aller_bd-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'allerregular';
+    src: url('http://www.mobile-warsaw.pl/fonts/aller_rg-webfont.eot');
+    src: url('../fonts/aller_rg-webfont.eot') format('embedded-opentype'),
+         url('../fonts/aller_rg-webfont.woff') format('woff'),
+         url('../fonts/aller_rg-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+body {   
+    background: url(../img/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+ }
+
+   #wrap { }
+
+a { color: #fd8700;}
+a:hover { color: #fd8700;}
+
+h2.participants { text-align: center; }
+h2.place { text-align: center; }
+
+.top { background: url(../img/top-bar.png) 0 0 repeat; margin-bottom: 15px;}
+.top .brand { display: block; height: 61px; }
+.top ul.inline { margin-top: 32px;}
+
+.participants-wrap .span10 { background: url(../img/trans.png) 0 0 repeat; }
+
+
+.participants-wrap { color: #fff; font-size: 13px; line-height: 16px; margin-bottom: 25px;   }
+.participants-wrap .media {   padding: 15px 0;}
+.participants-wrap .media .media-body { padding: 0 5px;}
+.participants-wrap .span5 { }
+
+.place-row { color: #fff; text-shadow: 0 1px 0px #414141; font-family: 'allerregular'}
+.place-row ul.event-list { text-transform: uppercase; font-size:17px;}
+.place-row ul.event-list li {     }
+.place-row ul.event-list span { font-family: 'allerbold';   line-height: 32px; color: #fff; font-size: 12px; background: url(../img/dymek.png) 0 0 no-repeat; width: 108px; height: 40px; text-align: center; }
+.place-row ul.event-list li small {font-size: 14px; text-transform: none;  display: block; line-height: 17px; font-family: 'allerregular'; padding-top: 10px;}
+.place-row ul.event-list p { padding-left: 128px; padding-top: 3px; margin-bottom: 35px; font-family: 'allerbold';}
+
+.place-row address strong { color: #332c1c; font-size: 20px; text-shadow: none;  }
+
+
+.join { background: transparent url(../img/cta.png) 0 0 no-repeat; color: #fff; text-transform: uppercase; margin: 30px 0; height: 20px; padding: 21px 0; width: 318px; text-align: center; font-size: 15px; font-weight: bold; text-shadow: none; }
+.join:hover { background-position: 0 bottom; color: #fff; text-decoration: none;}
+
+footer { padding-top: 10px; border-top: 1px solid #fbb67d; box-shadow: inset 0 1px 0 #f18328; line-height: 34px;}
+footer ul li { margin-right: 25px;}
+footer a { }
+/* Sticky footer styles
+      -------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -100px;
+}
+
+/* Set the fixed height of the footer here */
+#push,
+footer {
+  height: 89px;
+}
+footer {
+  background-color: #f4f0ed;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  .top { margin-left: -20px; margin-right: -20px; padding: 0 20px;}
+
+  footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: auto;
+  }
+  footer ul { float: none!important; margin-bottom: 40px;}
+  footer ul li { text-align: center; float: none; display: block!important; margin: 10px 0;}
+  footer p.pull-right { float: none!important; text-align: center;}
+
+  #wrap { margin: 0;}
+  #push { height: auto;}
+
+  .event-list { margin-bottom: 70px;}
+  .participants-wrap { margin-bottom: 40px;}
+  .participants-wrap .media  { padding: 15px;}
+  .join { float: none; margin: 30px auto; display: block; background: url(../img/small-cta.png) 0 0 no-repeat; padding: 10px 0; height: 22px;  width: 215px;  font-size: 11px}
+  .place-row { background: url(../img/trans.png) 0 0 repeat;  padding: 20px;}
+
+  .top ul.inline { margin-top: 0;}
+}
+@media (max-width: 768px) {
+ .top { margin-bottom: 20px;}
+}
+
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+.media-body { text-align: left!important;}
+.place-row ul.event-list span { float: none; display: block;}
+.place-row ul.event-list p { padding-left: 0;}
+
+ }
+
+ @media (min-width: 768px) and (max-width: 979px) {
+ .media-body { clear: both; padding-top: 15px!important;}
+  }
