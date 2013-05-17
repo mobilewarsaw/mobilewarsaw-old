@@ -34,6 +34,7 @@ body {
 
    #wrap { }
 
+.top h1 span { font-size: 12px; color: #fff; position: relative; top:3px; }
 a { color: #fd8700;}
 a:hover { color: #fd8700;}
 
@@ -41,7 +42,7 @@ h2.participants { text-align: center; }
 h2.place { text-align: center; }
 
 .top { background: url(../img/top-bar.png) 0 0 repeat; margin-bottom: 15px;}
-.top .brand { display: block; height: 61px; }
+.top .brand { height: 61px;  }
 .top ul.inline { margin-top: 32px;}
 
 .participants-wrap .span10 { background: url(../img/trans.png) 0 0 repeat; }
@@ -118,22 +119,27 @@ footer {
   .participants-wrap .media  { padding: 15px;}
   .join { float: none; margin: 30px auto; display: block; background: url(../img/small-cta.png) 0 0 no-repeat; padding: 10px 0; height: 22px;  width: 215px;  font-size: 11px}
   .place-row { background: url(../img/trans.png) 0 0 repeat;  padding: 20px;}
+.top h1 span { display: block;}
 
   .top ul.inline { margin-top: 0;}
 }
 @media (max-width: 768px) {
  .top { margin-bottom: 20px;}
+
 }
 
 
 /* Landscape phones and down */
-@media (max-width: 480px) { 
+@media (max-width: 485px) { 
 .media-body { text-align: left!important;}
 .place-row ul.event-list span { float: none; display: block;}
 .place-row ul.event-list p { padding-left: 0;}
+.top h1 span { display: block;}
+
 
  }
 
  @media (min-width: 768px) and (max-width: 979px) {
  .media-body { clear: both; padding-top: 15px!important;}
+
   }
