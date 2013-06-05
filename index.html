@@ -1,91 +1,46 @@
 ---
-layout: main
+layout: upcoming_meeting
 title: Mobile Warsaw
+date: 25 czerwiec 2013
+start_time: godzina 18:30
+
+left_speaker_photo: img/speakers/andrzej_mazur.jpg
+left_speaker_name: Andrzej Mazur
+left_speaker_bio: Założyciel Enclave Games i współzałożyciel Forge Studio, programista JavaScript i front-end developer z 7-letnim doświadczeniem, bloger, twórca mobilnych gier HTML5, pomysłodawca konkursu js13kGames, organizator spotkań Gamedev.js.
+
+right_speaker_photo: img/speakers/pawel_dudek.png
+right_speaker_name: Paweł Dudek
+right_speaker_bio: Deweloper iOS aktualnie zakotwiczony w Taptera Poland. Swoją przygodę z mobile rozpoczął w Polidei. Miłośnik czystego i testowalnego kodu.
+
+meetup_link: http://www.meetup.com/Mobile-Warsaw/events/118863292/
+
+place_name: PAŃSTWOMIASTO
+place_address: Andersa 29, Warsaw
+place_gmaps_url: https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=PA%C5%83STWOMIASTO,+Andersa+29,+Warsaw&amp;aq=&amp;sll=52.251965,20.99753&amp;sspn=0.011402,0.033023&amp;g=Andersa+29,+Warsaw&amp;ie=UTF8&amp;hq=PA%C5%83STWOMIASTO,+Andersa+29,&amp;hnear=Warsaw,+Warszawa,+Masovian+Voivodeship,+Poland&amp;ll=52.251967,20.997558&amp;spn=0.001425,0.004128&amp;t=m&amp;z=14&amp;iwloc=A&amp;cid=7470113008960498356&amp;output=embed
+
+last_meeting_url: 20130521.html
 ---
-
-<div class="content">
-    <div class="container">
-        <h2 class="participants"><img src="img/participants-head.png" alt="Wystąpią"></h2>
-        <div class="row participants-wrap">
-            <div class="offset1 span10">
-                <div class="row">
-                    <div class="span5">
-                        <div class="media">
-    								        <img src="img/grzechocinski.jpg" alt="" class="pull-right">
-                            <div class="media-body participant-desc text-right">
-		    						            <strong>Mateusz Grzechociński</strong><br/>
-									 	            <em>Deweloper i prelegent. Pasjonuje się programowaniem obiektowym, pisaniem "czystego" kodu i technikami prezentacji. Obecnie pracuje w Polidei, gdzie współtworzy aplikacje Androidowe. Ostatnio mocno interesuje się nowym build systemem dla Androida opartym o Gradle.</em>
-                            </div><!--participant-desc-->
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="span5">
-                        <div class="media">
-                            <img src="img/wijas.jpg" alt="" class="pull-left">
-                            <div class=" media-body participant-desc text-left">
-                                <strong>Robert Wijas</strong><br/>
-                                <em>Developer iOS obecnie pracujący w Taptera Poland, wcześniej w Macoscope gdzie m. in. zajmował się rozwijaniem NozbeApps. Twórca aplikacji Blipman i biblioteki UISS.</em>
-		    							
-                            </div>
-                        </div>
-                    </div>
-                </div><!--row-->
-            </div><!--spa12-->
-        </div><!--row-->
-        <h2 class="place"><img src="img/place-head.png" alt="Plan i miejsce spotkania"></h2>
-        <div class="row place-row">
-            <div class="offset1 span5">
-                <ul class="unstyled event-list">
-                    <li>
-                        <span class="pull-left">18:30-18:45</span>
-                        <p>Powitanie</p>
-                    </li>
-                    <li>
-                        <span class="pull-left">18:45-19:30</span>
-                        <p>
-                            Mateusz Grzechociński
-                            <small>Android + Gradle = New Build System</small>
-                        </p>
-                    </li>
-                    <li>
-                        <span class="pull-left">19:30-20:15</span>
-                        <p>
-                            Robert Wijas
-                            <small>UISS - UIAppearance on Steroids</small>
-                        </p>
-                    </li>
-                    <li>
-                        <span class="pull-left">20:15-...</span>
-                        <p>Dyskusje przy piwie</p>
-                    </li>
-                </ul>
-                <a href="22kwietnia.html" style="color: #fff;">&laquo; poprzednie spotkanie</a>
-            </div>
-            <div class="span5">
-                <div class="row">
-                    <div class="span3">
-                        <address>
-                            <strong>Solec</strong><br/>
-                            Solec 44, 00-681 Warszawa
-                        </address>
-                    </div><!--span-->
-                    <div class="span2">
-                        <address>
-                            <strong>21 maj 2013</strong><br/>
-                            godzina 18:30
-                        </address>
-                    </div>
-                </div><!--row-->
-                <div class="row" style="overflow: hidden;">
-                    <div class="span5">
-                        <iframe width="100%" height="192" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.pl/maps?f=q&amp;source=s_q&amp;hl=pl&amp;geocode=&amp;q=warszawa+solec+44&amp;aq=&amp;sll=50.127146,19.008329&amp;sspn=0.108069,0.338173&amp;t=h&amp;ie=UTF8&amp;hq=warszawa+solec+44&amp;cid=721904822000140173&amp;hnear=&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
-                    </div>
-                </div><!--row-->
-                <a href="http://www.meetup.com/Mobile-Warsaw/events/115790812/" class="join pull-right">Dołącz do wydarzenia</a>
-            </div><!--span-6-->
-        </div>
-    </div><!--container-->
-</div>
+<ul class="unstyled event-list">
+    <li>
+        <span class="pull-left">18:30-18:45</span>
+        <p>Powitanie</p>
+    </li>
+    <li>
+        <span class="pull-left">18:45-19:30</span>
+        <p>
+            {{ page.left_speaker_name }}
+            <small>Android + Gradle = New Build System</small>
+        </p>
+    </li>
+    <li>
+        <span class="pull-left">19:30-20:15</span>
+        <p>
+            {{ page.right_speaker_name }}
+            <small>UISS - UIAppearance on Steroids</small>
+        </p>
+    </li>
+    <li>
+        <span class="pull-left">20:15-...</span>
+        <p>Dyskusje przy piwie</p>
+    </li>
+</ul>
