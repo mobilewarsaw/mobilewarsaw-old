@@ -143,3 +143,8 @@ footer {
  .media-body { clear: both; padding-top: 15px!important;}
 
   }
+
+.speaker-photo {
+    width: 105px;
+    height: 105px;
+}
