@@ -75,6 +75,12 @@
             <li><a href="http://macoscope.net/pl/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
         </ul>
+        {% if page.sponsor_logo %}
+            <ul class="pull-left unstyled inline ">
+                <li>Sponsor:</li>
+                <li><a href="{{ page.sponsor_url }}" target="_blank"><img src="{{ page.sponsor_logo }}" alt=""></a></li>
+            </ul>
+        {% endif %}
         <p class="pull-right">Designed by <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
     </div>
 </footer>
