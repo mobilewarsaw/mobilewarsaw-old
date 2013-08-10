@@ -1,7 +1,7 @@
 ---
 layout: main
 ---
-<h2 class="participants"><img src="img/participants-head.png" alt="Wystąpią"></h2>
+<h2 class="participants"><img src="{{ page.image_participate }}" alt="{{ page.text_participate }}"></h2>
 <div class="row participants-wrap">
     <div class="offset1 span10">
         <div class="row">
@@ -27,24 +27,55 @@ layout: main
     </div>
 </div>
 
-<h2 class="place"><img src="img/place-head.png" alt="Plan i miejsce spotkania"></h2>
+<h2 class="place"><img src="{{ page.place_head_image }}" alt="Plan i miejsce spotkania"></h2>
 <div class="row place-row">
     <div class="offset1 span5">
-        {{ content }}
-        {% if page.last_meeting_url %}
-            <a href="{{ page.last_meeting_url }}" style="color: #fff;">&laquo; poprzednie spotkanie</a>
+        <ul class="unstyled event-list">
+            <li>
+                <span class="pull-left">{{page.time_introduction}}</span>
+                <p>{{page.text_introduction}}</p>
+            </li>
+            <li>
+                <span class="pull-left">{{page.time_left_speaker}}</span>
+                <p>
+                    {{ page.left_speaker_name }}
+                    <small>{{page.text_left_speaker}}</small>
+                </p>
+            </li>
+            <li>
+                <span class="pull-left">{{page.time_right_speaker}}</span>
+                <p>
+                    {{ page.right_speaker_name }}
+                    <small>{{page.text_right_speaker}}</small>
+                </p>
+            </li>
+            <li>
+                <span class="pull-left">{{page.time_networking}}</span>
+                <p>{{page.text_networking}}</p>
+            </li>
+        </ul>
+
+        {% if page.prev_meeting_id or page.next_meeting_id %}
+            <ul class="inline"> 
+                {% if page.prev_meeting_id %}
+                    <li><a href="{{ page.prev_meeting_id }}{{page.current_language}}.html" style="color: #fff;">&laquo; {{ page.text_prev_meeting }}</a></li>
+                {% endif %}
+                {% if page.next_meeting_id %}
+                    <li style="float: right"><a href="{{ page.next_meeting_id }}{{page.current_language}}.html" style="color: #fff;">{{ page.text_next_meeting }} &raquo;</a></li>
+                {% endif %}
+            </ul>
         {% endif %}
     </div>
 
     <div class="span5">
         <div class="row">
-            <div class="span3">
+            <div class="span2">
                 <address>
                     <strong>{{ page.place_name }}</strong><br/>
                     {{ page.place_address }}
                 </address>
             </div><!--span-->
-            <div class="span2">
+            <div class="span3" style="text-align: right">
                 <address>
                     <strong>{{ page.date }}</strong><br/>
                     {{ page.start_time }}
@@ -63,6 +94,6 @@ layout: main
                         ></iframe>
             </div>
         </div><!--row-->
-        <a href="{{ page.meetup_link }}" class="join pull-right">Dołącz do wydarzenia</a>
+        <a href="{{ page.meetup_link }}" class="join pull-right">{{ page.meetup_text }}</a>
     </div><!--span-6-->
 </div>

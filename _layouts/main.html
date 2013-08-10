@@ -36,12 +36,19 @@
     <div class="top">
         <div class="container">
             <div class="row">
-                <div class="span9">
+                <div class="span7">
                     <h1>
                         <a href="#" class="brand"><img src="../img/logo.png" alt="Mobile Warsaw"></a>
                         <span>{{ page.date }}</span>
                     </h1>
                 </div>
+
+                <div class="span2">
+                    <ul class="inline unstyled">
+                        <li><a href="{{page.id}}{{page.other_language}}.html" >{{page.other_version_text}}</a></li>
+                    </ul>
+                </div>
+
                 <div class="span3">
                     <ul class="inline unstyled pull-right">
                         <li class="gplus"><a href="https://plus.google.com/114703594903107902174" rel="publisher"><img src="../img/gplus.png" alt=""></a></li>
@@ -70,9 +77,9 @@
         </ul>
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
-            <li>Organizatorzy:</li>
-            <li><a href="http://www.polidea.com/en/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
-            <li><a href="http://macoscope.net/pl/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
+            <li>{{page.organizers_text}}</li>
+            <li><a href="http://www.polidea.com/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
+            <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
         </ul>
         {% if page.sponsor_logo %}
@@ -81,7 +88,7 @@
                 <li><a href="{{ page.sponsor_url }}" target="_blank"><img src="{{ page.sponsor_logo }}" alt=""></a></li>
             </ul>
         {% endif %}
-        <p class="pull-right">Designed by <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
+        <p class="pull-right">{{ page.designed_by_text }} <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
     </div>
 </footer>
 
