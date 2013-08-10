@@ -1,7 +1,10 @@
 ---
 layout: main
 ---
-<h2 class="participants"><img src="{{ page.image_participate }}" alt="{{ page.text_participate }}"></h2>
+<div class="participants" >
+    <img src="img/button-empty.png" alt="{{ page.text_participate }}">
+    <h2 class="participants_inner">{{ page.text_participate }}</h2>
+</div>
 <div class="row participants-wrap">
     <div class="offset1 span10">
         <div class="row">
@@ -27,7 +30,12 @@ layout: main
     </div>
 </div>
 
-<h2 class="place"><img src="{{ page.place_head_image }}" alt="Plan i miejsce spotkania"></h2>
+
+<div class="place" >
+    <img src="img/button-empty.png" alt="{{ page.place_head_text }}">
+    <h2 class="place_inner">{{ page.place_head_text }}</h2>
+</div>
+
 <div class="row place-row">
     <div class="offset1 span5">
         <ul class="unstyled event-list">
