@@ -42,36 +42,38 @@ a:hover { color: #fd8700;}
     position: relative;
     text-align: center;
     width: 100%; /* for IE 6 */
+    margin-bottom: 12px;
 }
 
 h2.participants_inner {
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 19px;
+    font-size: 17px;
     color: #8B5230;
     text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'allerbold';
 }
 
 .place {
     position: relative;
     text-align: center;
     width: 100%; /* for IE 6 */
+    margin-bottom: 12px;
 }
 
 h2.place_inner {
     position: absolute;
-    top: 10px;
+    top: 8px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 19px;
+    font-size: 17px;
     color: #8B5230;
     text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'allerbold';
 }
 
 .top { background: url(../img/top-bar.png) 0 0 repeat; margin-bottom: 15px;}
@@ -150,7 +152,7 @@ footer {
   .event-list { margin-bottom: 70px;}
   .participants-wrap { margin-bottom: 40px;}
   .participants-wrap .media  { padding: 15px;}
-  .join { float: none; margin: 30px auto; display: block; background: url(../img/small-cta.png) 0 0 no-repeat; padding: 10px 0; height: 22px;  width: 215px;  font-size: 11px}
+  .join { float: none; margin: 30px auto; display: block; background: url(../img/small-cta.png) 0 0 no-repeat; padding: 10px 0; height: 22px;  width: 215px;  font-size: 11px; font-family: allerregular}
   .place-row { background: url(../img/trans.png) 0 0 repeat;  padding: 20px;}
 .top h1 span { display: block;}
 

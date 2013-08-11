@@ -66,10 +66,10 @@ layout: main
         {% if page.prev_meeting_id or page.next_meeting_id %}
             <ul class="inline"> 
                 {% if page.prev_meeting_id %}
-                    <li><a href="{{ page.prev_meeting_id }}{{page.current_language}}.html" style="color: #fff;">&laquo; {{ page.text_prev_meeting }}</a></li>
+                    <li><a href="{{ page.prev_meeting_id }}{{page.current_language}}.html" style="color: #fff; font-size: small;">&laquo; {{ page.text_prev_meeting }}</a></li>
                 {% endif %}
                 {% if page.next_meeting_id %}
-                    <li style="float: right"><a href="{{ page.next_meeting_id }}{{page.current_language}}.html" style="color: #fff;">{{ page.text_next_meeting }} &raquo;</a></li>
+                    <li style="float: right"><a href="{{ page.next_meeting_id }}{{page.current_language}}.html" style="color: #fff; font-size: small;">{{ page.text_next_meeting }} &raquo;</a></li>
                 {% endif %}
             </ul>
         {% endif %}
