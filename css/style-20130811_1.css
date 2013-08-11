@@ -183,3 +183,8 @@ footer {
     width: 105px;
     height: 105px;
 }
+
+.links-to-other-meetings {
+    color: #fff; 
+    font-size: smaller
+}
