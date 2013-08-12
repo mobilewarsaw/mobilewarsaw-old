@@ -1,9 +1,17 @@
 ---
 layout: main
 ---
+{% if page.next_meeting_id != null %}
+    {% assign text_participate = page.past_text_participate %}
+    {% assign meetup_text = page.past_meetup_text %}
+{% else %}
+    {% assign text_participate = page.future_text_participate %}
+    {% assign meetup_text = page.future_meetup_text %}
+{% endif %}
+        
 <div class="participants" >
-    <img src="img/button-empty.png" alt="{{ page.text_participate }}">
-    <h2 class="participants_inner">{{ page.text_participate }}</h2>
+    <img src="img/button-empty.png" alt="{{ text_participate }}">
+    <h2 class="participants_inner">{{ text_participate }}</h2>
 </div>
 <div class="row participants-wrap">
     <div class="offset1 span10">
@@ -102,6 +110,6 @@ layout: main
                         ></iframe>
             </div>
         </div><!--row-->
-        <a href="{{ page.meetup_link }}" class="join pull-right">{{ page.meetup_text }}</a>
+        <a href="{{ page.meetup_link }}" class="join pull-right">{{ meetup_text }}</a>
     </div><!--span-6-->
 </div>
