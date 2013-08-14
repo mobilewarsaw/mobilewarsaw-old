@@ -1,14 +1,42 @@
 ---
 layout: main
 ---
-{% if page.next_meeting_id != null %}
-    {% assign text_participate = page.past_text_participate %}
-    {% assign meetup_text = page.past_meetup_text %}
+{% if page.language == 'en' %}
+    {% assign text_prev_meeting = 'previous meeting' %}
+    {% assign text_next_meeting = 'next meeting' %}
+    {% assign place_head_text = 'Agenda and venue' %}
+    {% assign past_text_participate = 'Speakers' %}
+    {% assign future_text_participate = 'Speakers' %}
+    {% assign past_meetup_text = 'Participated' %}
+    {% assign future_meetup_text = 'Join the meetup' %}
 {% else %}
-    {% assign text_participate = page.future_text_participate %}
-    {% assign meetup_text = page.future_meetup_text %}
+    {% assign text_prev_meeting = 'poprzednie spotkanie' %}
+    {% assign text_next_meeting = 'następne spotkanie' %}
+    {% assign place_head_text = 'Czas i miejsce' %}
+    {% assign past_text_participate = 'Wystąpili' %}
+    {% assign future_text_participate = 'Wystąpią' %}
+    {% assign past_meetup_text = 'Wzięli udział' %}
+    {% assign future_meetup_text = 'Dołącz do wydarzenia' %}
 {% endif %}
+
+{% assign prev_meetup_no = page.meetup_no | minus: 1 %}
+{% assign next_meetup_no = page.meetup_no | plus: 1 %}
         
+{% for some_page in site.pages %}
+    {% if some_page.meetup_no == prev_meetup_no and some_page.language == page.language %}
+        {% assign prev_meeting_url = some_page.url %}
+    {% endif %}
+    {% if some_page.meetup_no == next_meetup_no and some_page.language == page.language %}
+        {% assign next_meeting_url = some_page.url %}
+    {% endif %}
+{% endfor %}
+{% if next_meeting_url != null %}
+    {% assign text_participate = past_text_participate %}
+    {% assign meetup_text = past_meetup_text %}
+{% else %}
+    {% assign text_participate = future_text_participate %}
+    {% assign meetup_text = future_meetup_text %}
+{% endif %}
 <div class="participants" >
     <img src="img/button-empty.png" alt="{{ text_participate }}">
     <h2 class="participants_inner">{{ text_participate }}</h2>
@@ -40,8 +68,8 @@ layout: main
 
 
 <div class="place" >
-    <img src="img/button-empty.png" alt="{{ page.place_head_text }}">
-    <h2 class="place_inner">{{ page.place_head_text }}</h2>
+    <img src="img/button-empty.png" alt="{{ place_head_text }}">
+    <h2 class="place_inner">{{ place_head_text }}</h2>
 </div>
 
 <div class="row place-row">
@@ -71,13 +99,13 @@ layout: main
             </li>
         </ul>
 
-        {% if page.prev_meeting_id or page.next_meeting_id %}
+        {% if next_meeting_url or prev_meeting_url %}
             <ul class="inline"> 
-                {% if page.prev_meeting_id %}
-                    <li><a href="{{ page.prev_meeting_id }}{{page.current_language}}.html" class="links-to-other-meetings">&laquo; {{ page.text_prev_meeting }}</a></li>
+                {% if prev_meeting_url != null %}
+                    <li><a href="{{prev_meeting_url}}" class="links-to-other-meetings">&laquo; {{ text_prev_meeting }}</a></li>
                 {% endif %}
-                {% if page.next_meeting_id %}
-                    <li style="float: right"><a href="{{ page.next_meeting_id }}{{page.current_language}}.html" class="links-to-other-meetings">{{ page.text_next_meeting }} &raquo;</a></li>
+                {% if next_meeting_url != null %}
+                    <li style="float: right"><a href="{{next_meeting_url}}" class="links-to-other-meetings">{{ text_next_meeting }} &raquo;</a></li>
                 {% endif %}
             </ul>
         {% endif %}

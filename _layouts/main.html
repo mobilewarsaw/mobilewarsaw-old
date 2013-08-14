@@ -1,3 +1,21 @@
+{% if page.language == 'en' %}
+    {% assign place_head_text = 'Agenda and venue' %}
+    {% assign other_version_text = 'Wersja polska' %}
+    {% assign organizers_text = 'Organizers' %}
+    {% assign design_by_text = 'Designed by' %}
+{% else %}
+    {% assign place_head_text = 'Organizatorzy' %}
+    {% assign other_version_text = 'English version' %}
+    {% assign organizers_text = 'Organizers' %}
+    {% assign design_by_text = 'Projekt strony' %}
+{% endif %}
+
+{% for some_page in site.pages %}
+    {% if some_page.meetup_no == page.meetup_no and some_page.language != page.language %}
+        {% assign other_language_url = some_page.url %}
+    {% endif %}
+{% endfor %}
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -45,7 +63,7 @@
 
                 <div class="span2">
                     <ul class="inline unstyled">
-                        <li><a href="{{page.id}}{{page.other_language}}.html" >{{page.other_version_text}}</a></li>
+                        <li><a href="{{ other_language_url }}" >{{other_version_text}}</a></li>
                     </ul>
                 </div>
 
@@ -77,7 +95,7 @@
         </ul>
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
-            <li>{{page.organizers_text}}</li>
+            <li>{{organizers_text}}</li>
             <li><a href="http://www.polidea.com/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
             <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
@@ -88,7 +106,7 @@
                 <li><a href="{{ page.sponsor_url }}" target="_blank"><img src="{{ page.sponsor_logo }}" alt=""></a></li>
             </ul>
         {% endif %}
-        <p class="pull-right">{{ page.designed_by_text }} <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
+        <p class="pull-right">{{ designed_by_text }} <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
     </div>
 </footer>
 
