@@ -37,10 +37,23 @@ layout: main
     {% assign text_participate = future_text_participate %}
     {% assign meetup_text = future_meetup_text %}
 {% endif %}
+
+{% if next_meeting_url or prev_meeting_url %}
+<ul class="inline" style="margin-bottom: 30px;">
+    {% if prev_meeting_url != null %}
+    <li><a href="{{prev_meeting_url}}" class="links-to-other-meetings">&laquo; {{ text_prev_meeting }}</a></li>
+    {% endif %}
+    {% if next_meeting_url != null %}
+    <li style="float: right"><a href="{{next_meeting_url}}" class="links-to-other-meetings">{{ text_next_meeting }} &raquo;</a></li>
+    {% endif %}
+</ul>
+{% endif %}
+
 <div class="participants" >
     <img src="img/button-empty.png" alt="{{ text_participate }}">
     <h2 class="participants_inner">{{ text_participate }}</h2>
 </div>
+
 <div class="row">
     {% capture rest %}{{ page.speakers.size | modulo:2 }}{% endcapture %}
     {% if rest == '0' %}{% assign oddness = false %}{% else %}{% assign oddness = true %}{% endif %}
@@ -100,17 +113,6 @@ layout: main
             </li>
             {% endfor %}
         </ul>
-
-        {% if next_meeting_url or prev_meeting_url %}
-            <ul class="inline" style="margin-bottom: 30px;">
-                {% if prev_meeting_url != null %}
-                    <li><a href="{{prev_meeting_url}}" class="links-to-other-meetings">&laquo; {{ text_prev_meeting }}</a></li>
-                {% endif %}
-                {% if next_meeting_url != null %}
-                    <li style="float: right"><a href="{{next_meeting_url}}" class="links-to-other-meetings">{{ text_next_meeting }} &raquo;</a></li>
-                {% endif %}
-            </ul>
-        {% endif %}
     </div>
 
     <div class="span5">
