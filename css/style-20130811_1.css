@@ -23,8 +23,8 @@
 
 
 
-body {   
-    background: url(../img/bg.jpg) no-repeat center center fixed; 
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -80,10 +80,10 @@ h2.place_inner {
 .top .brand { height: 61px;  }
 .top ul.inline { margin-top: 32px;}
 
-.participants-wrap .span10 { background: url(../img/trans.png) 0 0 repeat; }
+.participants-wrap { background: url(../img/trans.png) 0 0 repeat; }
 
 
-.participants-wrap { color: #fff; font-size: 13px; line-height: 16px; margin-bottom: 25px;   }
+.participants-wrap { color: #fff; font-size: 13px; line-height: 16px; padding: 10px 0 12px 0; margin-bottom: 25px; }
 .participants-wrap .media {   padding: 15px 0;}
 .participants-wrap .media .media-body { padding: 0 5px;}
 .participants-wrap .span5 { }
@@ -125,7 +125,7 @@ body {
 /* Set the fixed height of the footer here */
 #push,
 footer {
-  height: 95px;
+  height: 65px;
 }
 footer {
   background-color: #f4f0ed;
@@ -165,7 +165,7 @@ footer {
 
 
 /* Landscape phones and down */
-@media (max-width: 485px) { 
+@media (max-width: 485px) {
 .media-body { text-align: left!important;}
 .place-row ul.event-list span { float: none; display: block;}
 .place-row ul.event-list p { padding-left: 0;}
@@ -185,6 +185,6 @@ footer {
 }
 
 .links-to-other-meetings {
-    color: #fff; 
+    color: #fff;
     font-size: smaller
 }

@@ -75,23 +75,22 @@
                     </ul>
                 </div>
             </div>
-        </div><!--container-->
-    </div><!--top-->
+        </div>
+    </div>
 
     <div class="content">
         <div class="container">
             {{ content }}
-        </div><!--container-->
-    </div><!--content-->
+        </div>
+    </div>
 
-    <!--content-->
+
     <div id="push"></div>
-</div><!--wrap-->
-<footer>
+</div>
+
+<footer class="navbar navbar-fixed-bottom">
     <div class="container">
         <ul class="pull-left unstyled inline ">
-            <!--<li style="min-width: 91px;">Sponsorzy:</li>-->
-            <!--<li><img src="img/sponsor.png" alt=""> </li>-->
         </ul>
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
@@ -101,12 +100,11 @@
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
         </ul>
         {% if page.sponsor_logo %}
-            <ul class="pull-left unstyled inline ">
-                <li>Sponsor:</li>
+            <ul class="pull-right unstyled inline ">
+                <li>Sponsors</li>
                 <li><a href="{{ page.sponsor_url }}" target="_blank"><img src="{{ page.sponsor_logo }}" alt=""></a></li>
             </ul>
         {% endif %}
-        <p class="pull-right">{{ designed_by_text }} <a href="http://www.futuremind.com" target="_blank">FutureMind</a></p>
     </div>
 </footer>
 

@@ -41,27 +41,45 @@ layout: main
     <img src="img/button-empty.png" alt="{{ text_participate }}">
     <h2 class="participants_inner">{{ text_participate }}</h2>
 </div>
-<div class="row participants-wrap">
-    <div class="offset1 span10">
+<div class="row">
+    {% capture rest %}{{ page.speakers.size | modulo:2 }}{% endcapture %}
+    {% if rest == '0' %}{% assign oddness = false %}{% else %}{% assign oddness = true %}{% endif %}
+
+    {% capture speakers_style %}
+        {% if oddness %}
+            offset2 span8
+        {% else %}
+            offset1 span10
+        {% endif %}
+    {% endcapture %}
+    <div class="{{speakers_style}} participants-wrap">
+
         <div class="row">
-            <div class="span5">
-                <div class="media">
-                    <img src="{{ page.left_speaker_photo }}" alt="" class="pull-right speaker-photo">
-                    <div class="media-body participant-desc text-right">
-                        <strong>{{ page.left_speaker_name }}</strong><br/>
-                        <em>{{ page.left_speaker_bio }}</em>
+
+            {% for speaker in page.speakers %}
+                {% capture align %}{% cycle 'right', 'left' %}{% endcapture %}
+                {% if oddness %}
+                    <div class="offset1 span6">
+                        <div class="media">
+                            <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                            <div class="media-body participant-desc text-{{ align }}">
+                                <strong>{{ speaker.name }}</strong><br/>
+                                <em>{{ speaker.description }}</em>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="span5">
-                <div class="media">
-                    <img src="{{ page.right_speaker_photo }}" alt="" class="pull-left speaker-photo">
-                    <div class=" media-body participant-desc text-left">
-                        <strong>{{ page.right_speaker_name }}</strong><br/>
-                        <em>{{ page.right_speaker_bio }}</em>
+                {% else %}
+                    <div class="span5">
+                        <div class="media">
+                            <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                            <div class="media-body participant-desc text-{{ align }}">
+                                <strong>{{ speaker.name }}</strong><br/>
+                                <em>{{ speaker.description }}</em>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -75,32 +93,16 @@ layout: main
 <div class="row place-row">
     <div class="offset1 span5">
         <ul class="unstyled event-list">
+            {% for event in page.agenda %}
             <li>
-                <span class="pull-left">{{page.time_introduction}}</span>
-                <p>{{page.text_introduction}}</p>
+                <span class="pull-left">{{ event.time_span }}</span>
+                <p>{{ event.title }}<small>{{ event.subtitle }}</small></p>
             </li>
-            <li>
-                <span class="pull-left">{{page.time_left_speaker}}</span>
-                <p>
-                    {{ page.left_speaker_name }}
-                    <small>{{page.text_left_speaker}}</small>
-                </p>
-            </li>
-            <li>
-                <span class="pull-left">{{page.time_right_speaker}}</span>
-                <p>
-                    {{ page.right_speaker_name }}
-                    <small>{{page.text_right_speaker}}</small>
-                </p>
-            </li>
-            <li>
-                <span class="pull-left">{{page.time_networking}}</span>
-                <p>{{page.text_networking}}</p>
-            </li>
+            {% endfor %}
         </ul>
 
         {% if next_meeting_url or prev_meeting_url %}
-            <ul class="inline"> 
+            <ul class="inline" style="margin-bottom: 30px;">
                 {% if prev_meeting_url != null %}
                     <li><a href="{{prev_meeting_url}}" class="links-to-other-meetings">&laquo; {{ text_prev_meeting }}</a></li>
                 {% endif %}
