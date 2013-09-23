@@ -188,3 +188,8 @@ footer {
     color: #fff;
     font-size: smaller
 }
+
+.sponsor_logo {
+    max-height: 55px;
+    max-width: 120px;
+}
