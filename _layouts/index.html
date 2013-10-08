@@ -1,0 +1,123 @@
+---
+layout: main
+
+next_meetup:
+  url: '#'
+  meetup_no: 0
+
+---
+
+{% assign next_meetup = page.next_meetup %}
+{% for some_page in site.pages %}
+    {% if some_page.meetup_no > next_meetup.meetup_no and some_page.language == page.language %}
+        {% assign next_meetup = some_page %}
+    {% endif %}
+{% endfor %}
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">Upcoming</h2>
+</div>
+
+<div class="row">
+    <div class="offset1 span10 participants-wrap">
+        <div class="row place-row">
+            <div class="offset2 span5">
+                <div class="row">
+                    <div class="span3" style="text-align: right">
+                        <address>
+                            <strong>{{ next_meetup.date }}</strong><br/>
+                            {{ next_meetup.start_time }}
+                        </address>
+                    </div>
+                    <div class="span2">
+                        <address>
+                            <strong>{{ next_meetup.place_name }}</strong><br/>
+                            {{ next_meetup.place_address }}
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for speaker in next_meetup.speakers %}
+            {% capture align %}{% cycle 'right', 'left' %}{% endcapture %}
+            <div class="span5">
+                <div class="media">
+                    <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                    <div class="media-body participant-desc text-{{ align }}">
+                        <strong>{{ speaker.name }}</strong><br/>
+                        <em>{{ speaker.description }}</em>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="span3 pull-right" style="padding-right: 20px;">
+                <a href="{{ next_meetup.url }}" class="join pull-right" style="margin: 0;">Go to meetup page</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">About</h2>
+</div>
+
+<div class="row">
+    <div class="offset1 span10 participants-wrap">
+        <div class="span4">
+            <h3>Who are we?</h3>
+            <span>
+                Mobile Warsaw is a community of mobile programmers.
+                We organize regular meetings, where mobile developers talk to mobile developers
+                about their experiences.
+                <br/><br/>
+                Mobile Warsaw was established in April 2013.
+            </span>
+        </div>
+        <div class="span4 pull-right">
+            <h3>How does it work?</h3>
+            <span>
+                We meet once a month in one of the Warsaw's pubs (different for each meeting).
+                <br/><br/> Meeting starts with presentations by developers, passionates,
+                community leaders, tools providers, technical leaders, ...
+                <br/><br/> After that we have an important networking part up to late night hours.
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">Propose a talk</h2>
+</div>
+
+<div class="row">
+    <div class="offset2 span8 participants-wrap text-center">
+        If you want to present a subject in front of MobileWarsaw community,
+        or suggest a topic - please fill the
+        <a
+          target="_blank"
+          href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">
+            proposal form
+        </a>.
+    </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">Partners</h2>
+</div>
+
+<div class="row">
+    <div class="offset3 span6 participants-wrap text-center">
+        <a href="http://www.jetbrains.com/">
+            <img src="/img/logo_jetbrains.gif" style="max-height: 60px;">
+        </a>
+        <br/>On each meetup you have a chance to win two JetBrains tools licences.
+    </div>
+</div>
+
