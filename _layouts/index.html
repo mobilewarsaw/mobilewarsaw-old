@@ -14,9 +14,55 @@ next_meetup:
     {% endif %}
 {% endfor %}
 
+{% if page.language == 'en' %}
+    {% assign upcoming_text = 'Upcoming' %}
+
+    {% assign about_text = 'About' %}
+    {% assign who_we_are_text = 'Who we are?' %}
+    {% assign about_us_text = 'Mobile Warsaw is a community of mobile programmers. We organize regular meetings, where mobile developers talk to mobile developers about their experiences.' %}
+    {% assign established_text = 'Mobile Warsaw was established in April 2013.' %}
+    {% assign how_does_it_work_text = 'How does it work?' %}
+    {% assign monthly_meeting_text = 'We meet once a month in one of the Warsaw's pubs (different for each meeting).' %}
+    {% assign meeting_start_text = 'Meeting starts with presentations by developers, passionates, community leaders, tools providers, technical leaders, ... ' %}
+    {% assign after_meeting_text = 'After that we have an important networking part up to late night hours.' %}
+
+    {% assign propose_talk_header_text = 'Propose a talk' %}
+    {% assign propose_talk_text = 'If you want to present a subject in front of MobileWarsaw community, or suggest a topic - please fill the' %}
+    {% assign proposal_form_text = 'proposal form' %}
+
+    {% assign partners_text = 'Partners' %}
+    {% assign jetbrains_text = 'At every meetup you have a chance to win two JetBrains tools licences.' %}
+
+    {% assign go_to_meetup_text = 'More info' %}
+    {% assign previous_meetings_text = 'Previous meetings' %}
+{% else %}
+    {% assign upcoming_text = 'Najbliższe spotkanie' %}
+
+    {% assign about_text = 'O nas' %}
+    {% assign who_we_are_text = 'Kim jesteśmy?' %}
+    {% assign about_us_text = 'Mobile Warsaw to społeczność programistów mobilnych. Organizujemy regularne spotkania, na którym inżynierowie mobilni opowiadają innym inżynierom mobilnym o swoich doświadczeniach.' %}
+    {% assign established_text = 'Mobile Warsaw powstało w kwietniu 2013.' %}
+    {% assign how_does_it_work_text = 'Jak działamy ?' %}
+    {% assign monthly_meeting_text = 'Spotykamy się raz w miesiącu w jednym z Warszawskich pubów (każde spotkanie odbywa się w innym miejscu).' %}
+    {% assign meeting_start_text = 'Spotkanie rozpoczyna się prezentacjami - głównie inżynierów, passionatów, liderów społeczności programistów, producentów narzędzi, liderów technologicznych, ... ' %}
+    {% assign after_meeting_text = 'Póżniej do późna w nocy jedna z ważniejszych części spotkania - czyli "networking" .' %}
+
+    {% assign propose_talk_header_text = 'Zaproponuj prezentację' %}
+    {% assign propose_talk_text = 'Jeśli chcesz zaprezentować się w Warszawskiej społeczności Mobile Warsaw, zaproponować temat - wypełnij' %}
+    {% assign proposal_form_text = 'formularz' %}
+
+    {% assign partners_text = 'Partnerzy' %}
+    {% assign jetbrains_text = 'Na każdym spotkaniu można wygrać dwie licencje narzędzi firmy JetBrains!' %}
+
+    {% assign go_to_meetup_text = 'Więcej informacji' %}
+    {% assign previous_meetings_text = 'Poprzednie spotkania' %}
+
+{% endif %}
+
+
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">Upcoming</h2>
+    <h2 class="participants_inner">{{ upcoming_text }}</h2>
 </div>
 
 <div class="row">
@@ -55,7 +101,7 @@ next_meetup:
         </div>
         <div class="row">
             <div class="span3 pull-right" style="padding-right: 20px;">
-                <a href="{{ next_meetup.url }}" class="join pull-right" style="margin: 0;">Go to meetup page</a>
+                <a href="{{ next_meetup.url }}" class="join pull-right" style="margin: 0;">{{ go_to_meetup_text }}</a>
             </div>
         </div>
     </div>
@@ -63,28 +109,27 @@ next_meetup:
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">About</h2>
+    <h2 class="participants_inner">{{ about_text }}</h2>
 </div>
 
 <div class="row">
     <div class="offset1 span10 participants-wrap">
         <div class="span4">
-            <h3>Who we are?</h3>
+            <h3>{{ who_we_are_text }}</h3>
             <span>
-                Mobile Warsaw is a community of mobile programmers.
-                We organize regular meetings, where mobile developers talk to mobile developers
-                about their experiences.
+                {{ about_us_text}}
                 <br/><br/>
-                Mobile Warsaw was established in April 2013.
+                {{ established_text }}
             </span>
         </div>
         <div class="span4 pull-right">
-            <h3>How does it work?</h3>
+            <h3>{{ how_does_it_work_text }}</h3>
             <span>
-                We meet once a month in one of the Warsaw's pubs (different for each meeting).
-                <br/><br/> Meeting starts with presentations by developers, passionates,
-                community leaders, tools providers, technical leaders, ...
-                <br/><br/> After that we have an important networking part up to late night hours.
+                {{ monthly_meeting_text }}
+                <br/><br/>
+                {{ meeting_start_text }}
+                <br/><br/>
+                {{ after_meeting_text }}
             </span>
         </div>
     </div>
@@ -92,24 +137,23 @@ next_meetup:
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">Propose a talk</h2>
+    <h2 class="participants_inner">{{ propose_talk_header_text }}</h2>
 </div>
 
 <div class="row">
     <div class="offset2 span8 participants-wrap text-center">
-        If you want to present a subject in front of MobileWarsaw community,
-        or suggest a topic - please fill the
+        {{ propose_talk_text }}
         <a
           target="_blank"
           href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">
-            proposal form
+            {{ proposal_form_text }}
         </a>.
     </div>
 </div>
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">Partners</h2>
+    <h2 class="participants_inner">{{ partners_text }}</h2>
 </div>
 
 <div class="row">
@@ -117,7 +161,7 @@ next_meetup:
         <a href="http://www.jetbrains.com/">
             <img src="/img/logo_jetbrains.gif" style="max-height: 60px;">
         </a>
-        <br/>At every meetup you have a chance to win two JetBrains tools licences.
+        <br/>{{ jetbrains_text }}
     </div>
 </div>
 
