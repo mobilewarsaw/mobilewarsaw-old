@@ -34,7 +34,7 @@ next_meetup:
     {% assign jetbrains_text = 'At every meetup you have a chance to win two JetBrains tools licences.' %}
 
     {% assign go_to_meetup_text = 'More info' %}
-    {% assign previous_meetings_text = 'Previous meetings' %}
+    {% assign previous_meetings_text = 'Previous meetups' %}
 {% else %}
     {% assign upcoming_text = 'Najbliższe spotkanie' %}
 
@@ -109,7 +109,34 @@ next_meetup:
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ about_text }}</h2>
+    <h2 class="participants_inner">{{ previous_meetings_text }}</h2>
+</div>
+
+<div class="row">
+    <div class="offset1 span10 participants-wrap text-center">
+        {% assign last_past_meetup = next_meetup.meetup_no | minus: 1 %}
+        {% for iterator in (1..last_past_meetup) %}
+            {% for some_page in site.pages  %}
+                {% if some_page.meetup_no == iterator and some_page.language == page.language %}
+
+                    <div class="span3">
+                        <a href="{{ some_page.url }}">
+                            <strong>Meetup #{{ some_page.meetup_no }}</strong>
+                        </a>
+                        {% for speaker in some_page.speakers %}
+                            <br/>{{ speaker.name }}
+                        {% endfor %}
+                        <br/><br/>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">{{about_text}}</h2>
 </div>
 
 <div class="row">
@@ -145,9 +172,7 @@ next_meetup:
         {{ propose_talk_text }}
         <a
           target="_blank"
-          href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">
-            {{ proposal_form_text }}
-        </a>.
+          href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
     </div>
 </div>
 
@@ -158,9 +183,7 @@ next_meetup:
 
 <div class="row">
     <div class="offset3 span6 participants-wrap text-center">
-        <a href="http://www.jetbrains.com/">
-            <img src="/img/logo_jetbrains.gif" style="max-height: 60px;">
-        </a>
+        <a href="http://www.jetbrains.com/"><img src="/img/logo_jetbrains.gif" style="max-height: 60px;"></a>
         <br/>{{ jetbrains_text }}
     </div>
 </div>
