@@ -63,6 +63,33 @@ next_meetup:
 
 <div class="participants">
     <img src="img/button-empty.png">
+    <h2 class="participants_inner">Previous meetings</h2>
+</div>
+
+<div class="row">
+    <div class="offset1 span10 participants-wrap text-center">
+        {% assign last_past_meetup = next_meetup.meetup_no | minus: 1 %}
+        {% for iterator in (1..last_past_meetup) %}
+            {% for some_page in site.pages  %}
+                {% if some_page.meetup_no == iterator and some_page.language == page.language %}
+
+                    <div class="span3">
+                        <a href="{{ some_page.url }}">
+                            <strong>Meetup #{{ some_page.meetup_no }}</strong>
+                        </a>
+                        {% for speaker in some_page.speakers %}
+                            <br/>{{ speaker.name }}
+                        {% endfor %}
+                        <br/><br/>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
     <h2 class="participants_inner">About</h2>
 </div>
 
