@@ -95,7 +95,8 @@ h2.place_inner {
 .place-row ul.event-list li small {font-size: 14px; text-transform: none;  display: block; line-height: 17px; font-family: 'allerregular'; padding-top: 10px;}
 .place-row ul.event-list p { padding-left: 128px; padding-top: 3px; margin-bottom: 35px; font-family: 'allerbold';}
 
-.place-row address strong { color: #42412c; font-size: 20px; text-shadow: -1px -1px 0px #848355; }
+.place-row address strong { color: #fff; font-size: 20px; }
+.place-row address-index strong { color: #f18328; font-size: 20px; }
 
 
 .join { background: transparent url(../img/cta.png) 0 0 no-repeat; color: #fff; text-transform: uppercase; margin: 30px 0; height: 20px; padding: 21px 0; width: 318px; text-align: center; font-size: 15px; font-weight: bold; text-shadow: none; }
