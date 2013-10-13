@@ -115,7 +115,7 @@ next_meetup:
 <div class="row">
     <div class="offset1 span10 participants-wrap text-center">
         {% assign last_past_meetup = next_meetup.meetup_no | minus: 1 %}
-        {% for iterator in (1..last_past_meetup) %}
+        {% for iterator in (1..last_past_meetup) reversed %}
             {% for some_page in site.pages  %}
                 {% if some_page.meetup_no == iterator and some_page.language == page.language %}
 
@@ -141,23 +141,29 @@ next_meetup:
 
 <div class="row">
     <div class="offset1 span10 participants-wrap">
-        <div class="span4">
-            <h3>{{ who_we_are_text }}</h3>
-            <span>
-                {{ about_us_text}}
-                <br/><br/>
-                {{ established_text }}
-            </span>
-        </div>
-        <div class="span4 pull-right">
-            <h3>{{ how_does_it_work_text }}</h3>
-            <span>
-                {{ monthly_meeting_text }}
-                <br/><br/>
-                {{ meeting_start_text }}
-                <br/><br/>
-                {{ after_meeting_text }}
-            </span>
+        <div class="row">
+            <div class="span4 offset1">
+                <div class="media">
+                    <h3>{{ who_we_are_text }}</h3>
+                    <span>
+                        {{ about_us_text}}
+                        <br/><br/>
+                        {{ established_text }}
+                    </span>
+                </div>
+            </div>
+            <div class="span4">
+                <div class="media">
+                    <h3>{{ how_does_it_work_text }}</h3>
+                    <span>
+                        {{ monthly_meeting_text }}
+                        <br/><br/>
+                        {{ meeting_start_text }}
+                        <br/><br/>
+                        {{ after_meeting_text }}
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -169,10 +175,12 @@ next_meetup:
 
 <div class="row">
     <div class="offset2 span8 participants-wrap text-center">
-        {{ propose_talk_text }}
-        <a
-          target="_blank"
-          href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
+        <div class="media">
+            {{ propose_talk_text }}
+            <a
+                    target="_blank"
+                    href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
+        </div>
     </div>
 </div>
 

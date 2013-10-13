@@ -154,7 +154,7 @@ footer {
   .participants-wrap { margin-bottom: 40px;}
   .participants-wrap .media  { padding: 15px;}
   .join { float: none; margin: 30px auto; display: block; background: url(../img/small-cta.png) 0 0 no-repeat; padding: 10px 0; height: 22px;  width: 215px;  font-size: 11px; font-family: allerregular}
-  .place-row { background: url(../img/trans.png) 0 0 repeat;  padding: 20px;}
+  .place-row { padding: 20px;}
 .top h1 span { display: block;}
 
   .top ul.inline { margin-top: 0;}
