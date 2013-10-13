@@ -9,6 +9,7 @@ layout: main
     {% assign future_text_participate = 'Speakers' %}
     {% assign past_meetup_text = 'Participated' %}
     {% assign future_meetup_text = 'Join the meetup' %}
+    {% assign meetup_name = 'Meetup' %}
 {% else %}
     {% assign text_prev_meeting = 'poprzednie spotkanie' %}
     {% assign text_next_meeting = 'następne spotkanie' %}
@@ -17,6 +18,7 @@ layout: main
     {% assign future_text_participate = 'Wystąpią' %}
     {% assign past_meetup_text = 'Wzięli udział' %}
     {% assign future_meetup_text = 'Dołącz do wydarzenia' %}
+    {% assign meetup_name = 'Spotkanie' %}
 {% endif %}
 
 {% assign prev_meetup_no = page.meetup_no | minus: 1 %}
@@ -46,6 +48,15 @@ layout: main
     {% if next_meeting_url != null %}
     <li style="float: right"><a href="{{next_meeting_url}}" class="links-to-other-meetings">{{ text_next_meeting }} &raquo;</a></li>
     {% endif %}
+    <li style="float: none">
+        <div class="row place-row">
+            <div class="span12 text-center upcoming-header">
+                <address-index>
+                    <strong>{{ meetup_name }} #{{page.meetup_no}}</strong>
+                </address-index>
+            </div>
+        </div>
+    </li>
 </ul>
 {% endif %}
 

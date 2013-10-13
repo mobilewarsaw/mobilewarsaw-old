@@ -35,6 +35,7 @@ next_meetup:
 
     {% assign go_to_meetup_text = 'More info' %}
     {% assign previous_meetings_text = 'Previous meetups' %}
+    {% assign meetup_name = 'Meetup' %}
 {% else %}
     {% assign upcoming_text = 'Najbliższe spotkanie' %}
 
@@ -56,7 +57,7 @@ next_meetup:
 
     {% assign go_to_meetup_text = 'Więcej informacji' %}
     {% assign previous_meetings_text = 'Poprzednie spotkania' %}
-
+    {% assign meetup_name = 'Spotkanie' %}
 {% endif %}
 
 
@@ -67,6 +68,14 @@ next_meetup:
 
 <div class="row">
     <div class="offset1 span10 participants-wrap">
+        <div class="row place-row">
+            <div class="span10 text-center upcoming-header">
+                <address-index>
+                    <strong>{{ meetup_name }} #{{next_meetup.meetup_no}}</strong>
+                </address-index>
+            </div>
+        </div>
+        <br>
         <div class="row place-row">
             <div class="offset2 span5">
                 <div class="row">
@@ -121,7 +130,7 @@ next_meetup:
 
                     <div class="span3">
                         <a href="{{ some_page.url }}">
-                            <strong>Meetup #{{ some_page.meetup_no }}</strong>
+                            <strong>{{ meetup_name }} #{{ some_page.meetup_no }}</strong>
                         </a>
                         {% for speaker in some_page.speakers %}
                             <br/>{{ speaker.name }}
