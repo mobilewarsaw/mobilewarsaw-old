@@ -36,6 +36,12 @@ next_meetup:
     {% assign go_to_meetup_text = 'More info' %}
     {% assign previous_meetings_text = 'Previous meetups' %}
     {% assign meetup_name = 'Meetup' %}
+
+    {% assign on_tour_text = 'Mobile Warsaw on Tour' %}
+    {% assign on_tour_title= 'Idea' %}
+    {% assign on_tour_title_meetings= 'Meetings' %}
+    {% assign on_tour_text_description = 'Mobile Warsaw on Tour is our new initiative which aims to promote mobile developers meetups throughout other cities in Poland.' %}
+    {% assign on_tour_text_promo = 'If you wish to present on one of our tours - please fill the' %}
 {% else %}
     {% assign upcoming_text = 'Najbliższe spotkanie' %}
 
@@ -58,6 +64,12 @@ next_meetup:
     {% assign go_to_meetup_text = 'Więcej informacji' %}
     {% assign previous_meetings_text = 'Poprzednie spotkania' %}
     {% assign meetup_name = 'Spotkanie' %}
+
+    {% assign on_tour_text = 'Mobile Warsaw on Tour' %}
+    {% assign on_tour_title= 'Idea' %}
+    {% assign on_tour_title_meetings= 'Spotkania' %}
+    {% assign on_tour_text_description = 'Mobile Warsaw on Tour jest nową inicjatywą promującą spotkania developerów aplikacji mobilnych w innych miastach w Polsce.' %}
+    {% assign on_tour_text_promo = 'Jeśli chciałbyś chcesz zaprezentować się na jednym z wyjazdów - wypełnij' %}
 {% endif %}
 
 
@@ -141,6 +153,50 @@ next_meetup:
             {% endfor %}
         {% endfor %}
     </div>
+</div>
+
+<div class="participants">
+    <img src="img/button-empty.png">
+    <h2 class="participants_inner">{{ on_tour_text }}</h2>
+</div>
+
+<div class="row">
+    <div class="offset1 span10 participants-wrap">
+        <div class="row">
+            <div class="span4 offset1">
+                <div class="media">
+                    <h3>{{ on_tour_title }}</h3>
+                    <span>
+                        {{ on_tour_text_description }}
+                        <br/><br/>
+                        {{ on_tour_text_promo }}
+                        <a target="_blank"
+                        href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
+                    </span>
+                </div>
+            </div>
+            <div class="span4">
+                    <div class="media">
+                    <h3>{{ on_tour_title_meetings }}</h3>
+
+                    {% for some_page in site.pages  %}
+                    {% if some_page.is_on_tour == 1 and some_page.language == page.language %}
+
+                    <div>
+                        <a href="{{ some_page.url }}">
+                            <strong>{{ meetup_name }} - {{ some_page.city }}</strong>
+                        </a>
+                        {% for speaker in some_page.speakers %}
+                            <br/>{{ speaker.name }}
+                        {% endfor %}
+                        <br/><br/>
+                    </div>
+                    {% endif %}
+                 {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 <div class="participants">
