@@ -5,77 +5,102 @@ next_meetup:
   url: '#'
   meetup_no: 0
 
+index_en:
+  upcoming_text: "Upcoming"
+  established_text: "Mobile Warsaw was established in April 2013."
+  how_does_it_work_text: "How does it work?"
+  proposal_form_text: "proposal form"
+  partners_text: "Partners"
+  jetbrains_text: "At every meetup you have a chance to win two JetBrains tools licences."
+  go_to_meetup_text: "More info"
+  previous_meetings_text: "Previous meetups"
+  meetup_name: "Meetup"
+  who_we_are_text: "Who we are?"
+  about_text: "About"
+  propose_talk_header_text: "Propose a talk"
+  normal_description_texts:
+    how_does_it_work_description: |
+        We meet once a month in one of the Warsaw's pubs (different for each meeting).
+        <br/><br/>
+        Meeting starts with presentations by developers, passionates,
+        community leaders, tools providers, technical leaders, ...
+        <br/><br/>
+        After that we have an important networking part up to late night hours.
+    who_we_are_description: |
+        Mobile Warsaw is a community of mobile programmers. We organize regular meetings,
+        where mobile developers talk to mobile developers about their experiences.
+    propose_talk_description: |
+        If you want to present a subject in front of MobileWarsaw community, suggest a topic - please fill the
+  ontour_description_texts:
+    how_does_it_work_description: |
+        We meet irregularly in one of the Polish cities (different for each meeting).
+        <br/><br/>
+        Meeting starts with presentations by developers, passionates,
+        community leaders, tools providers, technical leaders, ...
+        <br/><br/>
+        After that we have an important networking part up to late night hours.
+    who_we_are_description: |
+        Mobile Warsaw on Tour is our new initiative which aims to promote mobile
+        developers meetups throughout other cities in Poland.
+    propose_talk_description: |
+        If you wish to present on one of our tours - please fill the
+index_pl:
+  upcoming_text: "Najbliższe spotkanie"
+  established_text: "Mobile Warsaw powstało w kwietniu 2013."
+  how_does_it_work_text: "Jak działamy ?"
+  proposal_form_text: "formularz"
+  partners_text: "Partnerzy"
+  jetbrains_text: "Na każdym spotkaniu można wygrać dwie licencje narzędzi firmy JetBrains!"
+  go_to_meetup_text: "Więcej informacji"
+  previous_meetings_text: "Poprzednie spotkania"
+  meetup_name: "Spotkanie"
+  who_we_are_text: "Kim jesteśmy?"
+  about_text: "O nas"
+  propose_talk_header_text: "Zaproponuj prezentację"
+  normal_description_texts:
+    how_does_it_work_description: |
+        Spotykamy się raz w miesiącu w jednym z Warszawskich pubów (każde spotkanie odbywa się w innym miejscu).
+        <br/><br/>
+        Spotkanie rozpoczyna się prezentacjami - głównie inżynierów, passionatów, liderów społeczności programistów,
+        producentów narzędzi, liderów technologicznych, ...
+        <br/><br/>
+        Póżniej do późna w nocy jedna z ważniejszych części spotkania - czyli 'networking'.
+    who_we_are_description: |
+        Mobile Warsaw to społeczność programistów mobilnych. Organizujemy regularne spotkania,
+        na którym inżynierowie mobilni opowiadają innym inżynierom mobilnym o swoich doświadczeniach.
+    propose_talk_description: |
+        Jeśli chcesz zaprezentować się w Warszawskiej społeczności Mobile Warsaw, zaproponować temat - wypełnij
+  ontour_description_texts:
+    how_does_it_work_description: |
+        Spotykamy się nieregularnie w jednym z polskich miast (każde spotkanie odbywa się w innym mieście).
+        <br/><br/>
+        Spotkanie rozpoczyna się prezentacjami - głównie inżynierów, passionatów, liderów społeczności programistów,
+        producentów narzędzi, liderów technologicznych, ...
+        <br/><br/>
+        Póżniej do późna w nocy jedna z ważniejszych części spotkania - czyli 'networking'.
+    who_we_are_description: |
+        Mobile Warsaw on Tour jest nową inicjatywą promującą spotkania developerów aplikacji
+        mobilnych w innych miastach w Polsce.
+    propose_talk_description: |
+        Jeśli chcesz zaprezentować się na jednym z wyjazdów - wypełnij
 ---
+
+{% if page.language == 'en' %}
+  {% assign index_lang = page.index_en %}
+{% else %}
+  {% assign index_lang = page.index_pl %}
+{% endif %}
 
 {% assign next_meetup = page.next_meetup %}
 {% for some_page in site.pages %}
-    {% if some_page.meetup_no > next_meetup.meetup_no and some_page.language == page.language %}
+    {% if some_page.meetup_no > next_meetup.meetup_no and some_page.language == page.language and some_page.meetup_type == page.meetup_type %}
         {% assign next_meetup = some_page %}
     {% endif %}
 {% endfor %}
 
-{% if page.language == 'en' %}
-    {% assign upcoming_text = 'Upcoming' %}
-
-    {% assign about_text = 'About' %}
-    {% assign who_we_are_text = 'Who we are?' %}
-    {% assign about_us_text = 'Mobile Warsaw is a community of mobile programmers. We organize regular meetings, where mobile developers talk to mobile developers about their experiences.' %}
-    {% assign established_text = 'Mobile Warsaw was established in April 2013.' %}
-    {% assign how_does_it_work_text = 'How does it work?' %}
-    {% assign monthly_meeting_text = 'We meet once a month in one of the Warsaw's pubs (different for each meeting).' %}
-    {% assign meeting_start_text = 'Meeting starts with presentations by developers, passionates, community leaders, tools providers, technical leaders, ... ' %}
-    {% assign after_meeting_text = 'After that we have an important networking part up to late night hours.' %}
-
-    {% assign propose_talk_header_text = 'Propose a talk' %}
-    {% assign propose_talk_text = 'If you want to present a subject in front of MobileWarsaw community, or suggest a topic - please fill the' %}
-    {% assign proposal_form_text = 'proposal form' %}
-
-    {% assign partners_text = 'Partners' %}
-    {% assign jetbrains_text = 'At every meetup you have a chance to win two JetBrains tools licences.' %}
-
-    {% assign go_to_meetup_text = 'More info' %}
-    {% assign previous_meetings_text = 'Previous meetups' %}
-    {% assign meetup_name = 'Meetup' %}
-
-    {% assign on_tour_text = 'Mobile Warsaw on Tour' %}
-    {% assign on_tour_title= 'Idea' %}
-    {% assign on_tour_title_meetings= 'Meetings' %}
-    {% assign on_tour_text_description = 'Mobile Warsaw on Tour is our new initiative which aims to promote mobile developers meetups throughout other cities in Poland.' %}
-    {% assign on_tour_text_promo = 'If you wish to present on one of our tours - please fill the' %}
-{% else %}
-    {% assign upcoming_text = 'Najbliższe spotkanie' %}
-
-    {% assign about_text = 'O nas' %}
-    {% assign who_we_are_text = 'Kim jesteśmy?' %}
-    {% assign about_us_text = 'Mobile Warsaw to społeczność programistów mobilnych. Organizujemy regularne spotkania, na którym inżynierowie mobilni opowiadają innym inżynierom mobilnym o swoich doświadczeniach.' %}
-    {% assign established_text = 'Mobile Warsaw powstało w kwietniu 2013.' %}
-    {% assign how_does_it_work_text = 'Jak działamy ?' %}
-    {% assign monthly_meeting_text = 'Spotykamy się raz w miesiącu w jednym z Warszawskich pubów (każde spotkanie odbywa się w innym miejscu).' %}
-    {% assign meeting_start_text = 'Spotkanie rozpoczyna się prezentacjami - głównie inżynierów, passionatów, liderów społeczności programistów, producentów narzędzi, liderów technologicznych, ... ' %}
-    {% assign after_meeting_text = 'Póżniej do późna w nocy jedna z ważniejszych części spotkania - czyli "networking" .' %}
-
-    {% assign propose_talk_header_text = 'Zaproponuj prezentację' %}
-    {% assign propose_talk_text = 'Jeśli chcesz zaprezentować się w Warszawskiej społeczności Mobile Warsaw, zaproponować temat - wypełnij' %}
-    {% assign proposal_form_text = 'formularz' %}
-
-    {% assign partners_text = 'Partnerzy' %}
-    {% assign jetbrains_text = 'Na każdym spotkaniu można wygrać dwie licencje narzędzi firmy JetBrains!' %}
-
-    {% assign go_to_meetup_text = 'Więcej informacji' %}
-    {% assign previous_meetings_text = 'Poprzednie spotkania' %}
-    {% assign meetup_name = 'Spotkanie' %}
-
-    {% assign on_tour_text = 'Mobile Warsaw on Tour' %}
-    {% assign on_tour_title= 'Idea' %}
-    {% assign on_tour_title_meetings= 'Spotkania' %}
-    {% assign on_tour_text_description = 'Mobile Warsaw on Tour jest nową inicjatywą promującą spotkania developerów aplikacji mobilnych w innych miastach w Polsce.' %}
-    {% assign on_tour_text_promo = 'Jeśli chciałbyś chcesz zaprezentować się na jednym z wyjazdów - wypełnij' %}
-{% endif %}
-
-
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ upcoming_text }}</h2>
+    <h2 class="participants_inner">{{ index_lang.upcoming_text }}</h2>
 </div>
 
 <div class="row">
@@ -83,7 +108,11 @@ next_meetup:
         <div class="row place-row">
             <div class="span10 text-center upcoming-header">
                 <address-index>
-                    <strong><a href="{{next_meetup.url}}">{{ meetup_name }} #{{next_meetup.meetup_no}}</a></strong>
+                    {% if page.meetup_type == 'normal' %}
+                        <strong><a href="{{next_meetup.url}}">{{ index_lang.meetup_name }} #{{next_meetup.meetup_no}}</a></strong>
+                    {% else %}
+                        <strong><a href="{{next_meetup.url}}">{{ index_lang.meetup_name }} - {{next_meetup.city}}</a></strong>
+                    {% endif %}
                 </address-index>
             </div>
         </div>
@@ -122,86 +151,50 @@ next_meetup:
         </div>
         <div class="row">
             <div class="span3 pull-right" style="padding-right: 20px;">
-                <a href="{{ next_meetup.url }}" class="join pull-right" style="margin: 0;">{{ go_to_meetup_text }}</a>
+                <a href="{{ next_meetup.url }}" class="join pull-right" style="margin: 0;">{{ index_lang.go_to_meetup_text }}</a>
             </div>
         </div>
     </div>
 </div>
 
-<div class="participants">
-    <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ previous_meetings_text }}</h2>
-</div>
-
-<div class="row">
-    <div class="offset1 span10 participants-wrap text-center">
-        {% assign last_past_meetup = next_meetup.meetup_no | minus: 1 %}
-        {% for iterator in (1..last_past_meetup) reversed %}
-            {% for some_page in site.pages  %}
-                {% if some_page.meetup_no == iterator and some_page.language == page.language %}
-
-                    <div class="span3">
-                        <a href="{{ some_page.url }}">
-                            <strong>{{ meetup_name }} #{{ some_page.meetup_no }}</strong>
-                        </a>
-                        {% for speaker in some_page.speakers %}
-                            <br/>{{ speaker.name }}
-                        {% endfor %}
-                        <br/><br/>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+{% if next_meetup.meetup_no != 1 %}
+    <div class="participants">
+        <img src="img/button-empty.png">
+        <h2 class="participants_inner">{{ index_lang.previous_meetings_text }}</h2>
     </div>
-</div>
 
-<div class="participants">
-    <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ on_tour_text }}</h2>
-</div>
-
-<div class="row">
-    <div class="offset1 span10 participants-wrap">
-        <div class="row">
-            <div class="span4 offset1">
-                <div class="media">
-                    <h3>{{ on_tour_title }}</h3>
-                    <span>
-                        {{ on_tour_text_description }}
-                        <br/><br/>
-                        {{ on_tour_text_promo }}
-                        <a target="_blank"
-                        href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
-                    </span>
-                </div>
-            </div>
-            <div class="span4">
-                    <div class="media">
-                    <h3>{{ on_tour_title_meetings }}</h3>
-
-                    {% for some_page in site.pages  %}
-                    {% if some_page.is_on_tour == 1 and some_page.language == page.language %}
-
-                    <div>
-                        <a href="{{ some_page.url }}">
-                            <strong>{{ meetup_name }} - {{ some_page.city }}</strong>
-                        </a>
-                        {% for speaker in some_page.speakers %}
-                            <br/>{{ speaker.name }}
-                        {% endfor %}
-                        <br/><br/>
-                    </div>
+    <div class="row">
+        <div class="offset1 span10 participants-wrap text-center">
+            {% assign last_past_meetup = next_meetup.meetup_no | minus: 1 %}
+            {% for iterator in (1..last_past_meetup) reversed %}
+                {% for some_page in site.pages  %}
+                    {% if some_page.meetup_no == iterator and some_page.language == page.language and some_page.meetup_type == page.meetup_type %}
+                        <div class="span3">
+                            <a href="{{ some_page.url }}">
+                                <strong>{{ index_lang.meetup_name }} #{{ some_page.meetup_no }}</strong>
+                            </a>
+                            {% for speaker in some_page.speakers %}
+                                <br/>{{ speaker.name }}
+                            {% endfor %}
+                            <br/><br/>
+                        </div>
                     {% endif %}
-                 {% endfor %}
-            </div>
+                {% endfor %}
+            {% endfor %}
         </div>
     </div>
-</div>
-</div>
+{% endif %}
+
+{% if page.meetup_type == 'normal' %}
+    {% assign index_description_lang = index_lang.normal_description_texts %}
+{% else %}
+    {% assign index_description_lang = index_lang.ontour_description_texts %}
+{% endif %}
+
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{about_text}}</h2>
+    <h2 class="participants_inner">{{ index_lang.about_text }}</h2>
 </div>
 
 <div class="row">
@@ -209,23 +202,17 @@ next_meetup:
         <div class="row">
             <div class="span4 offset1">
                 <div class="media">
-                    <h3>{{ who_we_are_text }}</h3>
+                    <h3>{{ index_lang.who_we_are_text }}</h3>
                     <span>
-                        {{ about_us_text}}
-                        <br/><br/>
-                        {{ established_text }}
+                        {{ index_description_lang.who_we_are_description }}
                     </span>
                 </div>
             </div>
             <div class="span4">
                 <div class="media">
-                    <h3>{{ how_does_it_work_text }}</h3>
+                    <h3>{{ index_lang.how_does_it_work_text }}</h3>
                     <span>
-                        {{ monthly_meeting_text }}
-                        <br/><br/>
-                        {{ meeting_start_text }}
-                        <br/><br/>
-                        {{ after_meeting_text }}
+                        {{ index_description_lang.how_does_it_work_description }}
                     </span>
                 </div>
             </div>
@@ -235,29 +222,29 @@ next_meetup:
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ propose_talk_header_text }}</h2>
+    <h2 class="participants_inner">{{ index_lang.propose_talk_header_text }}</h2>
 </div>
 
 <div class="row">
     <div class="offset2 span8 participants-wrap text-center">
         <div class="media">
-            {{ propose_talk_text }}
+            {{ index_description_lang.propose_talk_description }}
             <a
                     target="_blank"
-                    href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ proposal_form_text }}</a>.
+                    href="https://docs.google.com/forms/d/1-mztU4DrS2coUbLjkFWoJ4U5ftY_XPCibl6pX23bjD0/viewform">{{ index_lang.proposal_form_text }}</a>.
         </div>
     </div>
 </div>
 
 <div class="participants">
     <img src="img/button-empty.png">
-    <h2 class="participants_inner">{{ partners_text }}</h2>
+    <h2 class="participants_inner">{{ index_lang.partners_text }}</h2>
 </div>
 
 <div class="row">
     <div class="offset3 span6 participants-wrap text-center">
         <a href="http://www.jetbrains.com/"><img src="/img/logo_jetbrains.gif" style="max-height: 60px;"></a>
-        <br/>{{ jetbrains_text }}
+        <br/>{{ index_lang.jetbrains_text }}
     </div>
 </div>
 

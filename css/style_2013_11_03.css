@@ -22,7 +22,6 @@
 }
 
 
-
 body {
     background: url(../img/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -36,7 +35,14 @@ body {
 
 .top h1 span { font-size: 12px; color: #fff; position: relative; top:3px; }
 a { color: #fd8700;}
+a.ontour {
+    color: white;
+}
+
 a:hover { color: #fd8700;}
+a.ontour:hover {
+    color: white;
+}
 
 .participants {
     position: relative;
