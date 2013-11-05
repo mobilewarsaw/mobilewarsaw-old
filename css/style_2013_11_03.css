@@ -45,6 +45,9 @@ a { color: #fd8700;}
 a.ontour {
     color: white;
 }
+span.top-date {
+    color: #fff;
+}
 
 a:hover { color: #fd8700;}
 a.ontour:hover {
