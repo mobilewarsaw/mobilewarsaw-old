@@ -1,17 +1,24 @@
+---
+main_en:
+  other_version_text: "Wersja polska"
+  organizers_text: "Organizers"
+  main_text: Mobile Warsaw
+  ontour_text: ON TOUR
+
+main_pl:
+  other_version_text: "English version"
+  organizers_text: "Organizatorzy"
+  main_text: Mobile Warsaw
+  ontour_text: ON TOUR
+---
 {% if page.language == 'en' %}
-    {% assign place_head_text = 'Agenda and venue' %}
-    {% assign other_version_text = 'Wersja polska' %}
-    {% assign organizers_text = 'Organizers' %}
-    {% assign design_by_text = 'Designed by' %}
+    {% assign main_lang = page.main_en %}
 {% else %}
-    {% assign place_head_text = 'Organizatorzy' %}
-    {% assign other_version_text = 'English version' %}
-    {% assign organizers_text = 'Organizers' %}
-    {% assign design_by_text = 'Projekt strony' %}
+    {% assign main_lang = page.main_pl %}
 {% endif %}
 
 {% for some_page in site.pages %}
-    {% if some_page.meetup_no == page.meetup_no and some_page.language != page.language %}
+    {% if some_page.meetup_no == page.meetup_no and some_page.meetup_type == page.meetup_type and some_page.language != page.language %}
         {% assign other_language_url = some_page.url %}
     {% endif %}
 {% endfor %}
@@ -38,13 +45,11 @@
                     backgroundImage: 'url(../img/bg_and.jpg)',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center 0'
-
-
                 })
             }
         })
     </script>
-    <link rel="stylesheet" href="css/style_2013_10_13.css">
+    <link rel="stylesheet" href="css/style_2013_11_03.css">
 </head>
 <body>
 
@@ -54,16 +59,46 @@
     <div class="top">
         <div class="container">
             <div class="row">
-                <div class="span7">
+                <div class="span5">
                     <h1>
-                        <a href="/" class="brand"><img src="../img/logo.png" alt="Mobile Warsaw"></a>
-                        <span>{{ page.date }}</span>
+                        {% if page.meetup_type == 'normal' %}
+                            {% if page.language == 'en' %}
+                                <a href="/index.html" class="brand"><img src="../img/logo.png" alt="Mobile Warsaw"></a>
+                            {% else %}
+                                <a href="/index_pl.html" class="brand"><img src="../img/logo.png" alt="Mobile Warsaw"></a>
+                            {% endif %}
+                        {% else %}
+                            {% if page.language == 'en' %}
+                                <a href="/index_ontour.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
+                            {% else %}
+                                <a href="/index_ontour_pl.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
+                            {% endif %}
+                        {% endif %}
                     </h1>
                 </div>
 
-                <div class="span2">
+                <div class="span4">
                     <ul class="inline unstyled">
-                        <li><a href="{{ other_language_url }}" >{{other_version_text}}</a></li>
+                        <li>
+                            {% if page.is_index %}
+                                {% if page.meetup_type == 'normal' %}
+                                    {% if page.language == 'en' %}
+                                        <a href="index_ontour.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                    {% else %}
+                                        <a href="index_ontour_pl.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                    {% endif %}
+                                {% else %}
+                                    {% if page.language == 'en' %}
+                                        <a href="index.html" class="ontour">{{ main_lang.main_text }}</a>
+                                    {% else %}
+                                        <a href="index_pl.html" class="ontour">{{ main_lang.main_text }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% else %}
+                               {{ page.date }}
+                            {% endif %}
+                        </li>
+                        <li><a href="{{ other_language_url }}" >{{main_lang.other_version_text}}</a></li>
                     </ul>
                 </div>
 
@@ -95,7 +130,7 @@
         </ul>
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
-            <li>{{organizers_text}}</li>
+            <li>{{ main_lang.organizers_text}}</li>
             <li><a href="http://www.polidea.com/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
             <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
