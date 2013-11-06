@@ -4,12 +4,18 @@ main_en:
   organizers_text: "Organizers"
   main_text: Mobile Warsaw
   ontour_text: ON TOUR
+  description: |
+    Mobile Warsaw on Tour is our new initiative which aims to promote mobile
+    developers meetups throughout other cities in Poland.
 
 main_pl:
   other_version_text: "English version"
   organizers_text: "Organizatorzy"
   main_text: Mobile Warsaw
   ontour_text: ON TOUR
+  description: |
+    Mobile Warsaw to społeczność programistów mobilnych. Organizujemy regularne spotkania,
+    na którym inżynierowie mobilni opowiadają innym inżynierom mobilnym o swoich doświadczeniach.
 ---
 {% if page.language == 'en' %}
     {% assign main_lang = page.main_en %}
@@ -28,6 +34,20 @@ main_pl:
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta charset="UTF-8">
+    <meta property="og:image" content="http://mobile-warsaw.pl/img/logo_mw.png"/>
+    <meta property="og:title" content="{{ page.title }}"/>
+    <meta property="og:url" content="http://mobile-warsaw.pl{{ page.url }}"/>
+    <meta property="og:site_name" content="Mobile Warsaw"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:description"
+          content="{{main_lang.description | newline_to_br | replace: '<br />', ' ' | strip_newlines }}"/>
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MobileWarsaw">
+    <meta name="twitter:title" content="Mobile Warsaw">
+    <meta name="twitter:description"
+          content="{{main_lang.description | newline_to_br | replace: '<br />', ' ' | strip_newlines }}">
+    <meta name="twitter:image" content="http://mobile-warsaw.pl/img/logo_mw.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
