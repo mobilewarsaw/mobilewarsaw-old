@@ -236,6 +236,8 @@ index_pl:
     </div>
 </div>
 
+{% if page.meetup_type == 'normal' %}
+
 <div class="participants">
     <img src="img/button-empty.png">
     <h2 class="participants_inner">{{ index_lang.partners_text }}</h2>
@@ -247,4 +249,5 @@ index_pl:
         <br/>{{ index_lang.jetbrains_text }}
     </div>
 </div>
+{% endif %}
 
