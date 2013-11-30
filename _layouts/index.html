@@ -172,7 +172,11 @@ index_pl:
                     {% if some_page.meetup_no == iterator and some_page.language == page.language and some_page.meetup_type == page.meetup_type %}
                         <div class="span3">
                             <a href="{{ some_page.url }}">
-                                <strong>{{ index_lang.meetup_name }} #{{ some_page.meetup_no }}</strong>
+                                {% if page.meetup_type == 'normal' %}
+                                    <strong>{{ index_lang.meetup_name }} #{{ some_page.meetup_no }}</strong>
+                                {% else %}
+                                    <strong>{{ index_lang.meetup_name }} {{ some_page.city }}</strong>
+                                {% endif %}
                             </a>
                             {% for speaker in some_page.speakers %}
                                 <br/>{{ speaker.name }}
