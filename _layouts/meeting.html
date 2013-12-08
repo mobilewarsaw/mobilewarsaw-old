@@ -39,12 +39,12 @@ meeting_pl:
         {% assign next_meeting_url = some_page.url %}
     {% endif %}
 {% endfor %}
-{% if next_meeting_url != null %}
-    {% assign text_participate = meeting_lang.past_text_participate %}
-    {% assign meetup_text = meeting_lang.past_meetup_text %}
-{% else %}
+{% if page.upcoming %}
     {% assign text_participate = meeting_lang.future_text_participate %}
     {% assign meetup_text = meeting_lang.future_meetup_text %}
+{% else %}
+    {% assign text_participate = meeting_lang.past_text_participate %}
+    {% assign meetup_text = meeting_lang.past_meetup_text %}
 {% endif %}
 
 <ul class="inline" style="margin-bottom: 30px;">
