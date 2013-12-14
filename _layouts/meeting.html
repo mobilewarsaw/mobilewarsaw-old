@@ -30,7 +30,7 @@ meeting_pl:
 
 {% assign prev_meetup_no = page.meetup_no | minus: 1 %}
 {% assign next_meetup_no = page.meetup_no | plus: 1 %}
-        
+
 {% for some_page in site.pages %}
     {% if some_page.meetup_no == prev_meetup_no and some_page.language == page.language and some_page.meetup_type == page.meetup_type %}
         {% assign prev_meeting_url = some_page.url %}
@@ -117,7 +117,6 @@ meeting_pl:
     </div>
 </div>
 
-
 <div class="place" >
     <img src="img/button-empty.png" alt="{{ meeting_lang.place_head_text }}">
     <h2 class="place_inner">{{ meeting_lang.place_head_text }}</h2>
@@ -162,6 +161,44 @@ meeting_pl:
                         ></iframe>
             </div>
         </div><!--row-->
+    </div><!--span-5-->
+</div>
+
+<div class>
+    {% for additional_info in page.aditional_info %}
+        <div class="place" >
+            <img src="img/button-empty.png" alt="{{ additional_info.title }}">
+            <h2 class="place_inner">{{ additional_info.title_top }}</h2>
+        </div>
+        <div class="row">
+        <div class="offset1 span10 participants-wrap">
+            <div class="row">
+                <div class="span4 offset1">
+                    <div class="media">
+                        <h3>{{ additional_info.title }}</h3>
+                        <span>
+                            {{ additional_info.text }}
+                        </span>
+                    </div>
+                </div>
+                <div class="span4">
+                    <div class="media">
+                        <span>
+                            <img src="{{ additional_info.img }}">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="row place-row place-row-single-meetup">
+    <div class="offset1 span5">
+    </div>
+
+    <div class="span5">
         <a href="{{ page.meetup_link }}" class="join pull-right" target="_blank">{{ meetup_text }}</a>
-    </div><!--span-6-->
+    </div><!--span-5-->
 </div>

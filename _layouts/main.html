@@ -155,6 +155,18 @@ main_pl:
             <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
         </ul>
+        {% if page.supporters %}
+            <ul class="pull-right unstyled inline ">
+                <li>Supporters</li>
+                {% for supporter in page.supporters %}
+                <li>
+                    <a href="{{ supporter.url }}" target="_blank">
+                        <img src="{{ supporter.logo }}" alt="" class="supporters">
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {% if page.sponsors %}
             <ul class="pull-right unstyled inline ">
                 <li>Sponsored by</li>
