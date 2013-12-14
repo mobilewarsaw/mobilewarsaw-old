@@ -7,6 +7,8 @@ main_en:
   description: |
     Mobile Warsaw is a community of mobile programmers. We organize regular meetings,
     where mobile developers talk to mobile developers about their experiences.
+  sponsor: Sponsor
+  support: Support
 
 main_pl:
   other_version_text: "English version"
@@ -16,6 +18,8 @@ main_pl:
   description: |
     Mobile Warsaw to społeczność programistów mobilnych. Organizujemy regularne spotkania,
     na którym inżynierowie mobilni opowiadają innym inżynierom mobilnym o swoich doświadczeniach.
+  sponsor: Sponsor
+  support: Wsparcie
 ---
 {% if page.language == 'en' %}
     {% assign main_lang = page.main_en %}
@@ -150,14 +154,14 @@ main_pl:
         </ul>
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
-            <li>{{ main_lang.organizers_text}}</li>
+            <div class="footer-heading">{{ main_lang.organizers_text}}</div>
             <li><a href="http://www.polidea.com/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
             <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
             <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
         </ul>
         {% if page.supporters %}
             <ul class="pull-right unstyled inline ">
-                <li>Supporters</li>
+                <div class="footer-heading">{{main_lang.support}}</div>
                 {% for supporter in page.supporters %}
                 <li>
                     <a href="{{ supporter.url }}" target="_blank">
@@ -169,7 +173,7 @@ main_pl:
         {% endif %}
         {% if page.sponsors %}
             <ul class="pull-right unstyled inline ">
-                <li>Sponsored by</li>
+                <div class="footer-heading">{{main_lang.sponsor}}</div>
                 {% for sponsor in page.sponsors %}
                 <li>
                     <a href="{{ sponsor.url }}" target="_blank">
