@@ -107,15 +107,15 @@ main_pl:
                             {% if page.is_index %}
                                 {% if page.meetup_type == 'normal' %}
                                     {% if page.language == 'en' %}
-                                        <a href="index_ontour.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                        <a href="on_tour/index.html" class="ontour">{{ main_lang.ontour_text }}</a>
                                     {% else %}
-                                        <a href="index_ontour_pl.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                        <a href="on_tour/index_pl.html" class="ontour">{{ main_lang.ontour_text }}</a>
                                     {% endif %}
                                 {% else %}
                                     {% if page.language == 'en' %}
-                                        <a href="index.html" class="ontour">{{ main_lang.main_text }}</a>
+                                        <a href="../index.html" class="ontour">{{ main_lang.main_text }}</a>
                                     {% else %}
-                                        <a href="index_pl.html" class="ontour">{{ main_lang.main_text }}</a>
+                                        <a href="../index_pl.html" class="ontour">{{ main_lang.main_text }}</a>
                                     {% endif %}
                                 {% endif %}
                             {% else %}
