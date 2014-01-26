@@ -8,7 +8,7 @@ Contains sources of (http://mobile-warsaw.pl) web page.
 
 ## Simple edit
 
-Just go ahead and edit files through GutHub. The HTML will be generated using GH Jekyll support and displayed (it takes seconds to reload).
+Just go ahead and edit files through GitHub. The HTML will be generated using GH Jekyll support and displayed (it takes seconds to reload).
 
 ## Local preview
 
