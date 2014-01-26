@@ -88,14 +88,14 @@ index_pl:
   {% assign index_lang = page.index_pl %}
 {% endif %}
 
-{% assign lowest_upcoming_meetup_no = 100000 %}
 {% assign already_printed_upcoming_header = false %}
+{% assign highest_past_meetup_no = 0 %}
 
 {% for current_meetup in site.pages %}
+    {% if current_meetup.upcoming == false and current_meetup.meetup_no > highest_past_meetup_no and current_meetup.language == page.language and current_meetup.meetup_type == page.meetup_type %}
+        {% assign highest_past_meetup_no = current_meetup.meetup_no %}
+    {% endif %}
     {% if current_meetup.upcoming and current_meetup.language == page.language and current_meetup.meetup_type == page.meetup_type %}
-        {% if current_meetup.meetup_no < lowest_upcoming_meetup_no %}
-           {% assign lowest_upcoming_meetup_no = current_meetup.meetup_no %}
-        {% endif %}
         {% if already_printed_upcoming_header == false %}
             <div class="participants">
                 <img src="{{ page.root }}img/button-empty.png">
@@ -166,8 +166,7 @@ index_pl:
 
 <div class="row">
     <div class="offset1 span10 participants-wrap text-center">
-        {% assign last_past_meetup = lowest_upcoming_meetup_no | minus: 1 %}
-        {% for iterator in (1..last_past_meetup) reversed %}
+        {% for iterator in (1..highest_past_meetup_no) reversed %}
             {% for some_page in site.pages  %}
                 {% if some_page.meetup_no == iterator and some_page.language == page.language and some_page.meetup_type == page.meetup_type %}
                     <div class="span3">
