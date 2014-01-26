@@ -98,7 +98,7 @@ index_pl:
         {% endif %}
         {% if already_printed_upcoming_header == false %}
             <div class="participants">
-                <img src="img/button-empty.png">
+                <img src="{{ page.root }}img/button-empty.png">
                 <h2 class="participants_inner">{{ index_lang.upcoming_text }}</h2>
             </div>
            {% assign already_printed_upcoming_header = true %}
@@ -140,7 +140,7 @@ index_pl:
                     {% capture align %}{% cycle 'right', 'left' %}{% endcapture %}
                     <div class="span5">
                         <div class="media">
-                            <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                            <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
                             <div class="media-body participant-desc text-{{ align }}">
                                 <strong>{{ speaker.name }}</strong><br/>
                                 <em>{{ speaker.description }}</em>
@@ -159,10 +159,8 @@ index_pl:
     {% endif %}
 {% endfor %}
 
-
-
 <div class="participants">
-    <img src="img/button-empty.png">
+    <img src="{{ page.root }}img/button-empty.png">
     <h2 class="participants_inner">{{ index_lang.previous_meetings_text }}</h2>
 </div>
 
@@ -197,9 +195,8 @@ index_pl:
     {% assign index_description_lang = index_lang.ontour_description_texts %}
 {% endif %}
 
-
 <div class="participants">
-    <img src="img/button-empty.png">
+    <img src="{{ page.root }}img/button-empty.png">
     <h2 class="participants_inner">{{ index_lang.about_text }}</h2>
 </div>
 
@@ -227,7 +224,7 @@ index_pl:
 </div>
 
 <div class="participants">
-    <img src="img/button-empty.png">
+    <img src="{{ page.root }}img/button-empty.png">
     <h2 class="participants_inner">{{ index_lang.propose_talk_header_text }}</h2>
 </div>
 
@@ -245,7 +242,7 @@ index_pl:
 {% if page.meetup_type == 'normal' %}
 
 <div class="participants">
-    <img src="img/button-empty.png">
+    <img src="{{ page.root }}img/button-empty.png">
     <h2 class="participants_inner">{{ index_lang.partners_text }}</h2>
 </div>
 
