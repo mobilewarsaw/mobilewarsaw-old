@@ -33,6 +33,9 @@ main_pl:
     {% endif %}
 {% endfor %}
 
+<link href="{{ relative }}css/main.css" rel="stylesheet" />
+<script src="{{ relative }}scripts/jquery.js"></script>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -54,8 +57,8 @@ main_pl:
     <meta name="twitter:image" content="http://mobile-warsaw.pl/img/logo_mw.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="{{ page.root }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ page.root }}css/bootstrap-responsive.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.3/jquery.backstretch.min.js"></script>
     <script type="text/javascript">
@@ -66,14 +69,14 @@ main_pl:
             if(isAndroid) {
                 $('body').css({
                     background: '#d5c9a9',
-                    backgroundImage: 'url(../img/bg_and.jpg)',
+                    backgroundImage: 'url({{ page.root }}../img/bg_and.jpg)',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center 0'
                 })
             }
         })
     </script>
-    <link rel="stylesheet" href="css/style_2013_11_03.css">
+    <link rel="stylesheet" href="{{ page.root }}css/style_2013_11_03.css">
 </head>
 <body>
 
@@ -93,9 +96,9 @@ main_pl:
                             {% endif %}
                         {% else %}
                             {% if page.language == 'en' %}
-                                <a href="/index_ontour.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
+                                <a href="index.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
                             {% else %}
-                                <a href="/index_ontour_pl.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
+                                <a href="index_pl.html" class="brand"><img src="../img/logo_ontour.png" alt="Mobile Warsaw on tour"></a>
                             {% endif %}
                         {% endif %}
                     </h1>
@@ -107,15 +110,15 @@ main_pl:
                             {% if page.is_index %}
                                 {% if page.meetup_type == 'normal' %}
                                     {% if page.language == 'en' %}
-                                        <a href="index_ontour.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                        <a href="on_tour/index.html" class="ontour">{{ main_lang.ontour_text }}</a>
                                     {% else %}
-                                        <a href="index_ontour_pl.html" class="ontour">{{ main_lang.ontour_text }}</a>
+                                        <a href="on_tour/index_pl.html" class="ontour">{{ main_lang.ontour_text }}</a>
                                     {% endif %}
                                 {% else %}
                                     {% if page.language == 'en' %}
-                                        <a href="index.html" class="ontour">{{ main_lang.main_text }}</a>
+                                        <a href="../index.html" class="ontour">{{ main_lang.main_text }}</a>
                                     {% else %}
-                                        <a href="index_pl.html" class="ontour">{{ main_lang.main_text }}</a>
+                                        <a href="../index_pl.html" class="ontour">{{ main_lang.main_text }}</a>
                                     {% endif %}
                                 {% endif %}
                             {% else %}
@@ -155,9 +158,9 @@ main_pl:
         <div class="clearfix"></div>
         <ul class="pull-left unstyled inline ">
             <div class="footer-heading">{{ main_lang.organizers_text}}</div>
-            <li><a href="http://www.polidea.com/" target="_blank"><img src="img/polidea.png" alt=""></a> </li>
-            <li><a href="http://macoscope.net/" target="_blank"><img src="img/macoscope.png" alt=""></a></li>
-            <li><a href="http://www.futuremind.com/" target="_blank"><img src="img/fm.png" alt=""></a></li>
+            <li><a href="http://www.polidea.com/" target="_blank"><img src="{{ page.root }}img/polidea.png" alt=""></a> </li>
+            <li><a href="http://macoscope.net/" target="_blank"><img src="{{ page.root }}img/macoscope.png" alt=""></a></li>
+            <li><a href="http://www.futuremind.com/" target="_blank"><img src="{{ page.root }}img/fm.png" alt=""></a></li>
         </ul>
         {% if page.supporters %}
             <ul class="pull-right unstyled inline ">
@@ -165,7 +168,7 @@ main_pl:
                 {% for supporter in page.supporters %}
                 <li>
                     <a href="{{ supporter.url }}" target="_blank">
-                        <img src="{{ supporter.logo }}" alt="" class="supporters">
+                        <img src="{{ page.root }}{{ supporter.logo }}" alt="" class="supporters">
                     </a>
                 </li>
                 {% endfor %}
@@ -177,7 +180,7 @@ main_pl:
                 {% for sponsor in page.sponsors %}
                 <li>
                     <a href="{{ sponsor.url }}" target="_blank">
-                        <img src="{{ sponsor.logo }}" alt="" class="supporters">
+                        <img src="{{ page.root }}{{ sponsor.logo }}" alt="" class="supporters">
                     </a>
                 </li>
                 {% endfor %}

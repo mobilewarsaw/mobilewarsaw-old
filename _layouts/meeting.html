@@ -70,7 +70,7 @@ meeting_pl:
 </ul>
 
 <div class="participants" >
-    <img src="img/button-empty.png" alt="{{ text_participate }}">
+    <img src="{{ page.root }}img/button-empty.png" alt="{{ text_participate }}">
     <h2 class="participants_inner">{{ text_participate }}</h2>
 </div>
 
@@ -94,7 +94,7 @@ meeting_pl:
                 {% if oddness %}
                     <div class="offset1 span6">
                         <div class="media">
-                            <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                            <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
                             <div class="media-body participant-desc text-{{ align }}">
                                 <strong>{{ speaker.name }}</strong><br/>
                                 <em>{{ speaker.description }}</em>
@@ -104,7 +104,7 @@ meeting_pl:
                 {% else %}
                     <div class="span5">
                         <div class="media">
-                            <img src="{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                            <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
                             <div class="media-body participant-desc text-{{ align }}">
                                 <strong>{{ speaker.name }}</strong><br/>
                                 <em>{{ speaker.description }}</em>
@@ -118,7 +118,7 @@ meeting_pl:
 </div>
 
 <div class="place" >
-    <img src="img/button-empty.png" alt="{{ meeting_lang.place_head_text }}">
+    <img src="{{ page.root }}img/button-empty.png" alt="{{ meeting_lang.place_head_text }}">
     <h2 class="place_inner">{{ meeting_lang.place_head_text }}</h2>
 </div>
 
@@ -167,7 +167,7 @@ meeting_pl:
 <div class>
     {% for additional_info in page.aditional_info %}
         <div class="place" >
-            <img src="img/button-empty.png" alt="{{ additional_info.title }}">
+            <img src="{{ page.root }}img/button-empty.png" alt="{{ additional_info.title }}">
             <h2 class="place_inner">{{ additional_info.title_top }}</h2>
         </div>
         <div class="row">
