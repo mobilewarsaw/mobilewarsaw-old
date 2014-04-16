@@ -86,11 +86,9 @@ meeting_pl:
         {% endif %}
     {% endcapture %}
     <div class="{{speakers_style}} participants-wrap">
-
-        <div class="row">
-
             {% for speaker in page.speakers %}
                 {% capture align %}{% cycle 'right', 'left' %}{% endcapture %}
+                {% cycle '<div class="row">', '' %}
                 {% if oddness %}
                     <div class="offset1 span6">
                         <div class="media">
@@ -112,7 +110,13 @@ meeting_pl:
                         </div>
                     </div>
                 {% endif %}
+
+                {% cycle '', '</div>' %}
             {% endfor %}
+
+            {% if oddness %}
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

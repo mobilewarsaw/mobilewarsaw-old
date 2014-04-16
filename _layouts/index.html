@@ -135,20 +135,42 @@ index_pl:
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    {% for speaker in current_meetup.speakers %}
+
+                {% capture rest %}{{ current_meetup.speakers.size | modulo:2 }}{% endcapture %}
+                {% if rest == '0' %}{% assign oddness = false %}{% else %}{% assign oddness = true %}{% endif %}
+
+                {% for speaker in current_meetup.speakers %}
                     {% capture align %}{% cycle 'right', 'left' %}{% endcapture %}
-                    <div class="span5">
-                        <div class="media">
-                            <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
-                            <div class="media-body participant-desc text-{{ align }}">
-                                <strong>{{ speaker.name }}</strong><br/>
-                                <em>{{ speaker.description }}</em>
+                    {% cycle '<div class="row">', '' %}
+                    {% if oddness %}
+                        <div class="offset2 span6">
+                            <div class="media">
+                                <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                                <div class="media-body participant-desc text-{{ align }}">
+                                    <strong>{{ speaker.name }}</strong><br/>
+                                    <em>{{ speaker.description }}</em>
+                                </div>
                             </div>
                         </div>
+                    {% else %}
+                        <div class="span5">
+                            <div class="media">
+                                <img src="{{ page.root }}{{ speaker.photo }}" alt="" class="pull-{{ align }} speaker-photo">
+                                <div class="media-body participant-desc text-{{ align }}">
+                                    <strong>{{ speaker.name }}</strong><br/>
+                                    <em>{{ speaker.description }}</em>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% cycle '', '</div>' %}
+                {% endfor %}
+
+                {% if oddness %}
                     </div>
-                    {% endfor %}
-                </div>
+                {% endif %}
+
                 <div class="row">
                     <div class="span3 pull-right" style="padding-right: 20px;">
                         <a href="{{ current_meetup.url }}" class="join pull-right" style="margin: 0;">{{ index_lang.go_to_meetup_text }}</a>
