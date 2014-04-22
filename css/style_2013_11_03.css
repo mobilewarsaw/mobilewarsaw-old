@@ -114,6 +114,7 @@ h2.place_inner {
 .place-row address strong { color: #fff; font-size: 20px; }
 .place-row address-index strong { color: #f18328; font-size: 20px; }
 
+.place-row-single-meetup {padding-bottom: 80px; }
 
 .join { background: transparent url(../img/cta.png) 0 0 no-repeat; color: #fff; text-transform: uppercase; margin: 30px 0; height: 20px; padding: 21px 0; width: 318px; text-align: center; font-size: 15px; font-weight: bold; text-shadow: none; }
 .join:hover { background-position: 0 bottom; color: #fff; text-decoration: none;}
